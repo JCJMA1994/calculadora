@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.systemfailed.calculadora"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.systemfailed.calculadora"
