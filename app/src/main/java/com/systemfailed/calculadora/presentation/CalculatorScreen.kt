@@ -14,13 +14,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.systemfailed.calculadora.domain.model.CalculateAction
+import com.systemfailed.calculadora.domain.model.CalculateOperation
 import com.systemfailed.calculadora.presentation.components.DisplayScreen
 import com.systemfailed.calculadora.presentation.components.KeyScreen
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun CalculatorScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: CalculatorViewModel = koinViewModel()
+
 ) {
+    val state = viewModel.state
+
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -34,7 +41,7 @@ fun CalculatorScreen(
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             DisplayScreen(
-                text = "0"
+                state.number1 + (state.operation) + state.number2
             )
             Row(
                 modifier = modifier
@@ -46,19 +53,25 @@ fun CalculatorScreen(
                     modifier = modifier
                         .aspectRatio(2f)
                         .weight(2f)
-                ) { }
+                ) {
+                    viewModel.onAction(CalculateAction.Clear)
+                }
                 KeyScreen(
                     number = "C",
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
-                ) { }
+                ) {
+                    viewModel.onAction(CalculateAction.Delete)
+                }
                 KeyScreen(
                     number = "/",
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
-                ) { }
+                ) {
+                    viewModel.onAction(CalculateAction.Operation(CalculateOperation.DIVIDE))
+                }
             }
             Row(
                 modifier = modifier
@@ -70,25 +83,33 @@ fun CalculatorScreen(
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
-                ) { }
+                ) {
+                    viewModel.onAction(CalculateAction.Number(7))
+                }
                 KeyScreen(
                     number = "8",
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
-                ) { }
+                ) {
+                    viewModel.onAction(CalculateAction.Number(8))
+                }
                 KeyScreen(
                     number = "9",
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
-                ) { }
+                ) {
+                    viewModel.onAction(CalculateAction.Number(9))
+                }
                 KeyScreen(
                     number = "X",
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
-                ) { }
+                ) {
+                    viewModel.onAction(CalculateAction.Operation(CalculateOperation.MULTIPLY))
+                }
             }
             Row(
                 modifier = modifier
@@ -100,25 +121,33 @@ fun CalculatorScreen(
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
-                ) { }
+                ) {
+                    viewModel.onAction(CalculateAction.Number(4))
+                }
                 KeyScreen(
                     number = "5",
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
-                ) { }
+                ) {
+                    viewModel.onAction(CalculateAction.Number(5))
+                }
                 KeyScreen(
                     number = "6",
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
-                ) { }
+                ) {
+                    viewModel.onAction(CalculateAction.Number(6))
+                }
                 KeyScreen(
                     number = "-",
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
-                ) { }
+                ) {
+                    viewModel.onAction(CalculateAction.Operation(CalculateOperation.SUBTRACT))
+                }
             }
             Row(
                 modifier = modifier
@@ -130,25 +159,33 @@ fun CalculatorScreen(
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
-                ) { }
+                ) {
+                    viewModel.onAction(CalculateAction.Number(1))
+                }
                 KeyScreen(
                     number = "2",
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
-                ) { }
+                ) {
+                    viewModel.onAction(CalculateAction.Number(2))
+                }
                 KeyScreen(
                     number = "3",
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
-                ) { }
+                ) {
+                    viewModel.onAction(CalculateAction.Number(3))
+                }
                 KeyScreen(
                     number = "+",
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
-                ) { }
+                ) {
+                    viewModel.onAction(CalculateAction.Operation(CalculateOperation.ADD))
+                }
             }
             Row(
                 modifier = modifier
@@ -160,19 +197,25 @@ fun CalculatorScreen(
                     modifier = modifier
                         .aspectRatio(2f)
                         .weight(2f)
-                ) { }
+                ) {
+                    viewModel.onAction(CalculateAction.Number(0))
+                }
                 KeyScreen(
                     number = ".",
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
-                ) { }
+                ) {
+                    viewModel.onAction(CalculateAction.Decimal)
+                }
                 KeyScreen(
                     number = "=",
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
-                ) { }
+                ) {
+                    viewModel.onAction(CalculateAction.Calculate)
+                }
             }
         }
     }
