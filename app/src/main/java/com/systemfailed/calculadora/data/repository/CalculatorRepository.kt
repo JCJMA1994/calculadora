@@ -9,14 +9,14 @@ class CalculatorRepository : ICalculatorRepository {
         number2: Double,
         operation: CalculateOperation
     ): Double {
-        if (operation == CalculateOperation.DIVIDE && number2 == 0.0) {
+        if (operation == CalculateOperation.Divide && number2 == 0.0) {
             throw IllegalArgumentException("Division by zero")
         }
         return when (operation) {
-            CalculateOperation.ADD -> number1 + number2
-            CalculateOperation.SUBTRACT -> number1 - number2
-            CalculateOperation.MULTIPLY -> number1 * number2
-            CalculateOperation.DIVIDE -> number1 / number2
+            CalculateOperation.Add -> number1 + number2
+            CalculateOperation.Subtract -> number1 - number2
+            CalculateOperation.Multiply -> number1 * number2
+            CalculateOperation.Divide -> number1 / number2
         }
     }
 }

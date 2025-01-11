@@ -6,6 +6,9 @@ data class CalculatorState(
     val operation: CalculateOperation? = null,
 )
 
-enum class CalculateOperation {
-    ADD, SUBTRACT, MULTIPLY, DIVIDE
+sealed class CalculateOperation(val symbol: String) {
+    data object Add: CalculateOperation("+")
+    data object Subtract: CalculateOperation("-")
+    data object Multiply: CalculateOperation("x")
+    data object Divide: CalculateOperation("/")
 }

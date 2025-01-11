@@ -97,7 +97,7 @@ class CalculatorViewModel(
                     calculatorUseCase(number1, number2, operation)
                         .onSuccess { result ->
                             state = state.copy(
-                                number1 = result.toString(),
+                                number1 = result.toString().take(5),
                                 number2 = "",
                                 operation = null
                             )

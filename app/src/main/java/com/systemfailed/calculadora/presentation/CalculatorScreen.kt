@@ -41,7 +41,7 @@ fun CalculatorScreen(
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             DisplayScreen(
-                state.number1 + (state.operation) + state.number2
+                state.number1 + (state.operation?.symbol ?: "") + state.number2
             )
             Row(
                 modifier = modifier
@@ -70,7 +70,7 @@ fun CalculatorScreen(
                         .aspectRatio(1f)
                         .weight(1f)
                 ) {
-                    viewModel.onAction(CalculateAction.Operation(CalculateOperation.DIVIDE))
+                    viewModel.onAction(CalculateAction.Operation(CalculateOperation.Divide))
                 }
             }
             Row(
@@ -108,7 +108,7 @@ fun CalculatorScreen(
                         .aspectRatio(1f)
                         .weight(1f)
                 ) {
-                    viewModel.onAction(CalculateAction.Operation(CalculateOperation.MULTIPLY))
+                    viewModel.onAction(CalculateAction.Operation(CalculateOperation.Multiply))
                 }
             }
             Row(
@@ -146,7 +146,7 @@ fun CalculatorScreen(
                         .aspectRatio(1f)
                         .weight(1f)
                 ) {
-                    viewModel.onAction(CalculateAction.Operation(CalculateOperation.SUBTRACT))
+                    viewModel.onAction(CalculateAction.Operation(CalculateOperation.Subtract))
                 }
             }
             Row(
@@ -184,7 +184,7 @@ fun CalculatorScreen(
                         .aspectRatio(1f)
                         .weight(1f)
                 ) {
-                    viewModel.onAction(CalculateAction.Operation(CalculateOperation.ADD))
+                    viewModel.onAction(CalculateAction.Operation(CalculateOperation.Add))
                 }
             }
             Row(
