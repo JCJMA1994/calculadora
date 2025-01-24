@@ -9,6 +9,6 @@ data class CalculatorState(
 sealed class CalculateOperation(val symbol: String) {
     data object Add: CalculateOperation("+")
     data object Subtract: CalculateOperation("-")
-    data object Multiply: CalculateOperation("x")
+    data object Multiply: CalculateOperation("*")
     data object Divide: CalculateOperation("/")
 }

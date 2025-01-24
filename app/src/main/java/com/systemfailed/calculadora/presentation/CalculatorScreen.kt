@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -31,7 +32,7 @@ fun CalculatorScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(Color.Gray)
+            .background(MaterialTheme.colorScheme.background)
             .padding(16.dp)
     ) {
         Column(
@@ -50,6 +51,7 @@ fun CalculatorScreen(
             ) {
                 KeyScreen(
                     number = "AC",
+                    colorText = Color.Red,
                     modifier = modifier
                         .aspectRatio(2f)
                         .weight(2f)
@@ -58,6 +60,7 @@ fun CalculatorScreen(
                 }
                 KeyScreen(
                     number = "C",
+                    colorText = Color.Red,
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
@@ -66,6 +69,7 @@ fun CalculatorScreen(
                 }
                 KeyScreen(
                     number = "/",
+                    colorText = Color.Blue,
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
@@ -103,7 +107,8 @@ fun CalculatorScreen(
                     viewModel.onAction(CalculateAction.Number(9))
                 }
                 KeyScreen(
-                    number = "X",
+                    number = "*",
+                    colorText = Color.Blue,
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
@@ -142,6 +147,7 @@ fun CalculatorScreen(
                 }
                 KeyScreen(
                     number = "-",
+                    colorText = Color.Blue,
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
@@ -180,6 +186,7 @@ fun CalculatorScreen(
                 }
                 KeyScreen(
                     number = "+",
+                    colorText = Color.Blue,
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)
@@ -210,6 +217,7 @@ fun CalculatorScreen(
                 }
                 KeyScreen(
                     number = "=",
+                    colorText = Color.Blue,
                     modifier = modifier
                         .aspectRatio(1f)
                         .weight(1f)

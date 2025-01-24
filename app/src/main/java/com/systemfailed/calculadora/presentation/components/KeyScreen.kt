@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,7 +19,8 @@ import androidx.compose.ui.unit.sp
 fun KeyScreen(
     number: String,
     modifier: Modifier = Modifier,
-    color: Color = Color.DarkGray,
+    color: Color = Color(0xFFE0E0E0),
+    colorText: Color = Color.Black,
     textStyle: TextStyle = TextStyle(),
     onclick: () -> Unit
 ) {
@@ -36,7 +38,7 @@ fun KeyScreen(
             text = number,
             style = textStyle,
             fontSize = 36.sp,
-            color = Color.White
+            color = colorText
         )
     }
 }
